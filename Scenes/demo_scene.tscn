@@ -1,5 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://po63m4srixl4"]
 
+[ext_resource type="PackedScene" uid="uid://cphgt4rnq8j3c" path="res://Scenes/AtmosphereParticles.tscn" id="1_particles"]
 [ext_resource type="Environment" uid="uid://ds6fxfom4fx6u" path="res://Materials/test_sky.tres" id="1_skybox"]
 [ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
 [ext_resource type="PackedScene" uid="uid://dcnx1pw5gxy60" path="res://Assets/green/platform_slope_6x4x4_green.gltf" id="3_okl2h"]
@@ -13,7 +14,6 @@
 [ext_resource type="PackedScene" path="res://Scenes/WinFlag.tscn" id="7_8ep1j"]
 [ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
 [ext_resource type="Script" uid="uid://btej10kahk277" path="res://Scripts/GameUI.gd" id="7_x8whp"]
-[ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3tqca"]
 size = Vector3(1, 4.64716, 1)
@@ -299,23 +299,22 @@ environment = ExtResource("1_skybox")
 transform = Transform3D(-0.898603, 0.438763, 2.98254e-08, 0.146657, 0.300359, 0.942484, 0.413527, 0.846919, -0.334251, 9.04457, 6.63937, -28.4749)
 shadow_enabled = true
 
+[node name="AtmosphereParticles" parent="Environment" instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
 [node name="Extras" type="Node3D" parent="."]
 
 [node name="SpawnPosition" type="Marker3D" parent="Extras"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Extras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -40)
-texture = ExtResource("9_46gx6")
-
 [node name="Features" type="Label3D" parent="Extras"]
 transform = Transform3D(0.387789, 0, 0.921748, 0, 1, 0, -0.921748, 0, 0.387789, -14.0511, 5.78537, -6.67751)
-text = "Features:
-Working Controller
-Double Jump
-Basic Score System
-Animations"
+text = "🚀 CYBER FEATURES 🚀
+⚡ NEON CONTROLLER ⚡
+🌟 DOUBLE JUMP BOOST 🌟
+💎 SYNTHWAVE SCORING 💎
+🎭 HOLOGRAM ANIMATIONS 🎭"
 font = SubResource("SystemFont_om7om")
 font_size = 250
 outline_size = 0
@@ -323,9 +322,21 @@ uppercase = true
 
 [node name="Credits" type="Label3D" parent="Extras"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0336823, 4.71136, 8.82437)
-text = "Platform Models By: Rayyan Aziz
-Character By: GDQuest
-Programming & Level Design: Adil Shafiq"
+text = "🌟 CYBERPUNK PLATFORMER 🌟
+✨ 663380303-5 ✨
+🎮 อัษฎาวุธ เรือนแก้ว 🎮
+💫 NEON DREAMS EDITION 💫"
+font = SubResource("SystemFont_ub50t")
+font_size = 100
+outline_size = 0
+uppercase = true
+
+[node name="Credits" type="Label3D" parent="Extras/Credits"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0533166, 0.324372, 42.3422)
+text = "🌟 CYBERPUNK PLATFORMER 🌟
+✨ 663380303-5 ✨
+🎮 อัษฎาวุธ เรือนแก้ว 🎮
+💫 NEON DREAMS EDITION 💫"
 font = SubResource("SystemFont_ub50t")
 font_size = 100
 outline_size = 0
@@ -337,16 +348,16 @@ uppercase = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36921, -11)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.36921, -21.6303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13765, 4.71637, -28.3179)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14233, 7.06635, -20.9353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8773, 4.63592, -9.61971)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 8.76539, -20.793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3643, 4.4701, 20.936)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("5_4fiv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 9.70155, -9.79296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5113, 17.329, 22.5756)
 
 [node name="GameManager" type="Node3D" parent="."]
 script = ExtResource("6_8fvkd")
@@ -413,5 +424,20 @@ theme_override_font_sizes/font_size = 72
 text = "🎉 YOU WIN! 🎉"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AtmosphereParticles" parent="." instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185683, 7.42598, 0.169601)
+
+[node name="AtmosphereParticles2" parent="." instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06023, 7.42598, -25.1471)
+
+[node name="AtmosphereParticles3" parent="." instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185683, 7.42598, -10.4938)
+
+[node name="AtmosphereParticles4" parent="." instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.007, 8.02672, -9.45138)
+
+[node name="AtmosphereParticles5" parent="." instance=ExtResource("1_particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.007, 20.7581, 26.4397)
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
