@@ -20,7 +20,7 @@ func show_win_message():
 	canvas_layer.add_child(win_label)
 	
 	# ตั้งค่า Label
-	win_label.text = "🌟 CYBER VICTORY! 🌟\n✨ 663380303-5 ✨\n🎮 อัษฎาวุธ เรือนแก้ว 🎮\n💫 NEON CHAMPION! 💫"
+	win_label.text = "🌟 CYBER VICTORY! 🌟\n✨ 663380303-5 ✨\n🎮 aussadawut runekew 🎮\n💫 NEON CHAMPION! 💫"
 	win_label.add_theme_font_size_override("font_size", 48)
 	win_label.add_theme_color_override("font_color", Color.CYAN)
 	win_label.add_theme_color_override("font_outline_color", Color.MAGENTA)

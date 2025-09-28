@@ -324,7 +324,7 @@ uppercase = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0336823, 4.71136, 8.82437)
 text = "🌟 CYBERPUNK PLATFORMER 🌟
 ✨ 663380303-5 ✨
-🎮 อัษฎาวุธ เรือนแก้ว 🎮
+🎮 aussadawut runekew 🎮
 💫 NEON DREAMS EDITION 💫"
 font = SubResource("SystemFont_ub50t")
 font_size = 100
@@ -335,7 +335,7 @@ uppercase = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0533166, 0.324372, 42.3422)
 text = "🌟 CYBERPUNK PLATFORMER 🌟
 ✨ 663380303-5 ✨
-🎮 อัษฎาวุธ เรือนแก้ว 🎮
+🎮 aussadawut runekew 🎮
 💫 NEON DREAMS EDITION 💫"
 font = SubResource("SystemFont_ub50t")
 font_size = 100
