@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+albedo_color = Color(1, 0.6, 0.6, 0.7)
+metallic = 0.0
+roughness = 0.4
+transparency = 1
+flags_transparent = true
+flags_unshaded = false
+vertex_color_use_as_albedo = false

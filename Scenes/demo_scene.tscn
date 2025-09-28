@@ -1,0 +1,417 @@
+[gd_scene load_steps=22 format=3 uid="uid://po63m4srixl4"]
+
+[ext_resource type="Environment" uid="uid://ds6fxfom4fx6u" path="res://Materials/test_sky.tres" id="1_skybox"]
+[ext_resource type="PackedScene" uid="uid://cf0w0skqs3k64" path="res://Scenes/player.tscn" id="2_21dfl"]
+[ext_resource type="PackedScene" uid="uid://dcnx1pw5gxy60" path="res://Assets/green/platform_slope_6x4x4_green.gltf" id="3_okl2h"]
+[ext_resource type="Script" uid="uid://bdm7wm8loh284" path="res://Scripts/DeadZone.gd" id="4_8ry15"]
+[ext_resource type="PackedScene" uid="uid://cpqi31qf0fg0v" path="res://Assets/green/platform_6x6x4_green.gltf" id="4_ad2i4"]
+[ext_resource type="PackedScene" uid="uid://bymixq1d252t0" path="res://Assets/red/arch_red.gltf" id="4_sx1u2"]
+[ext_resource type="PackedScene" uid="uid://bk5n0tn4k1l0c" path="res://Scenes/Coin.tscn" id="5_4fiv6"]
+[ext_resource type="PackedScene" uid="uid://nm6mo0pqtjo6" path="res://Assets/red/platform_6x6x4_red.gltf" id="5_8ep1j"]
+[ext_resource type="Script" uid="uid://cgyxxwoqe4lrb" path="res://Scripts/GameManager.gd" id="6_8fvkd"]
+[ext_resource type="PackedScene" path="res://Scenes/PlatformRedLight.tscn" id="6_tse6v"]
+[ext_resource type="PackedScene" path="res://Scenes/WinFlag.tscn" id="7_8ep1j"]
+[ext_resource type="Texture2D" uid="uid://cnbbny7qjh2xn" path="res://Assets/Textures/coin.png" id="7_ow7xm"]
+[ext_resource type="Script" uid="uid://btej10kahk277" path="res://Scripts/GameUI.gd" id="7_x8whp"]
+[ext_resource type="Texture2D" uid="uid://hk3gj75327hy" path="res://Assets/Textures/Logo.png" id="9_46gx6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3tqca"]
+size = Vector3(1, 4.64716, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_om7om"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="SystemFont" id="SystemFont_ub50t"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asf4q"]
+size = Vector3(128, 17, 112)
+
+[sub_resource type="SystemFont" id="SystemFont_1ixsq"]
+font_names = PackedStringArray("Star Choco")
+multichannel_signed_distance_field = true
+
+[sub_resource type="SystemFont" id="SystemFont_656xb"]
+font_names = PackedStringArray("Star Choco")
+
+[sub_resource type="LabelSettings" id="LabelSettings_igq7x"]
+font = SubResource("SystemFont_656xb")
+font_size = 50
+font_color = Color(0.996094, 0.691406, 0.261719, 1)
+
+[node name="DemoScene" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_21dfl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="platform_6x6x4_green2" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108028, 0, -10.8227)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green2/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green3" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216056, 0, -0.278637)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green3/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green4" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.09453, 0, 0, 0, 1, 0, 0, 0, 2.05359, -0.108028, 0, -22.3385)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green4/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green5" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(-4.13204e-09, 0, 2.05359, 0, 1, 0, -0.09453, 0, -8.97653e-08, 5.75505, 0, -28.3201)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green5/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green6" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.0270883, 0, 1.96747, 0, 1, 0, -0.0905657, 0, 0.588472, 17.4733, 0, -26.612)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green6/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_slope_6x4x4_green2" parent="Platforms" instance=ExtResource("3_okl2h")]
+transform = Transform3D(-0.97441, 0.0104238, -0.224536, 0.00641804, 0.999807, 0.0185626, 0.224686, 0.0166466, -0.974289, 24.9745, 1.77672, -19.9983)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_slope_6x4x4_green2"]
+transform = Transform3D(0.940228, -1.39698e-09, 0, -9.31323e-10, 0.0597904, -0.362882, 0, 0.0319251, 0.679617, 0.0168076, 2.6177, 0.0486021)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_slope_6x4x4_green2/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="arch_red2" parent="Platforms" instance=ExtResource("4_sx1u2")]
+transform = Transform3D(1.39314, 0, 0, 0, 1.73823, 0, 0, 0, 1.35004, -0.197919, 3.99288, -12.9887)
+
+[node name="platform_6x6x4_red2" parent="Platforms" instance=ExtResource("5_8ep1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.329, 0, -9.67043)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_red2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_red2/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="PlatformRedLight" parent="Platforms" instance=ExtResource("6_tse6v")]
+transform = Transform3D(0.352, 0, 0, 0, 1, 0, 0, 0, 1, 23.394, 0, 0.07)
+
+[node name="platform_6x6x4_red4" parent="Platforms" instance=ExtResource("5_8ep1j")]
+transform = Transform3D(0.352376, 0, 0, 0, 1, 0, 0, 0, 1, 27.6219, 0, 0.0702848)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_red4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_red4/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_red3" parent="Platforms" instance=ExtResource("5_8ep1j")]
+transform = Transform3D(2.70408, 0, 0, 0, 1, 0, 0, 0, 0.214781, 25.329, 0, 5.41118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_red3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_red3/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_red5" parent="Platforms" instance=ExtResource("5_8ep1j")]
+transform = Transform3D(2.70408, 0, 0, 0, 1, 0, 0, 0, 0.214781, 25.329, 0, 9.69882)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_red5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_red5/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_red6" parent="Platforms" instance=ExtResource("5_8ep1j")]
+transform = Transform3D(2.70408, 0, 0, 0, 1, 0, 0, 0, 0.214781, 25.329, 0, 14.0027)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_red6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_red6/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green7" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(2.95638, 0, 0, 0, 1, 0, 0, 0, 2.52449, 25.6813, 0, 26.4313)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green7/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green8" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 4.42196, 0, 0, 0, 0.570151, 25.6813, 0, 26.4313)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green8/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green9" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.7013, 5.67901, 29.4252)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green9/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green10" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 29.8001, 6.72593, 26.4273)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green10/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green11" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.6371, 7.51942, 23.0186)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green11/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green12" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 21.4762, 8.45222, 26.3967)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green12/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green13" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.688, 9.47214, 29.7069)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green13/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green15" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 29.8001, 10.5024, 26.4273)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green15/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green16" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.6371, 11.2959, 23.0186)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green16/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green17" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 21.4762, 12.2287, 26.3967)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green17/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green18" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.688, 13.2486, 29.7069)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green18/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green19" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 29.8001, 14.0412, 26.4273)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green19/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green20" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.6371, 14.8347, 23.0186)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green20"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green20/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green21" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 21.4762, 15.7675, 26.3967)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green21/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="platform_6x6x4_green22" parent="Platforms" instance=ExtResource("4_ad2i4")]
+transform = Transform3D(0.713098, 0, 0, 0, 0.0283711, 0, 0, 0, 0.570151, 25.688, 16.7874, 29.7069)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/platform_6x6x4_green22"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform_6x6x4_green22/StaticBody3D"]
+transform = Transform3D(6.0939, 0, 0, 0, 0.933604, 0, 0, 0, 5.98792, 0, 1.82358, 0)
+shape = SubResource("BoxShape3D_3tqca")
+
+[node name="WinFlag" parent="Platforms" instance=ExtResource("7_8ep1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8396, 17.5602, 26.5623)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = ExtResource("1_skybox")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.898603, 0.438763, 2.98254e-08, 0.146657, 0.300359, 0.942484, 0.413527, 0.846919, -0.334251, 9.04457, 6.63937, -28.4749)
+shadow_enabled = true
+
+[node name="Extras" type="Node3D" parent="."]
+
+[node name="SpawnPosition" type="Marker3D" parent="Extras"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Extras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -40)
+texture = ExtResource("9_46gx6")
+
+[node name="Features" type="Label3D" parent="Extras"]
+transform = Transform3D(0.387789, 0, 0.921748, 0, 1, 0, -0.921748, 0, 0.387789, -14.0511, 5.78537, -6.67751)
+text = "Features:
+Working Controller
+Double Jump
+Basic Score System
+Animations"
+font = SubResource("SystemFont_om7om")
+font_size = 250
+outline_size = 0
+uppercase = true
+
+[node name="Credits" type="Label3D" parent="Extras"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0336823, 4.71136, 8.82437)
+text = "Platform Models By: Rayyan Aziz
+Character By: GDQuest
+Programming & Level Design: Adil Shafiq"
+font = SubResource("SystemFont_ub50t")
+font_size = 100
+outline_size = 0
+uppercase = true
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36921, -11)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.36921, -21.6303)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14233, 7.06635, -20.9353)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 8.76539, -20.793)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("5_4fiv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8983, 9.70155, -9.79296)
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("6_8fvkd")
+
+[node name="DeadZone" type="Area3D" parent="."]
+script = ExtResource("4_8ry15")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+shape = SubResource("BoxShape3D_asf4q")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_x8whp")
+
+[node name="CoinTexture" type="TextureRect" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 31.0
+offset_right = 122.0
+offset_bottom = 121.0
+texture = ExtResource("7_ow7xm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CoinsLabel" type="Label" parent="UserInterface/GameUI"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 50.0
+offset_right = 193.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.996094, 0.710938, 0.261719, 1)
+theme_override_colors/font_outline_color = Color(0.644531, 0.410156, 0.1875, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("SystemFont_1ixsq")
+theme_override_font_sizes/font_size = 48
+text = "X 3"
+label_settings = SubResource("LabelSettings_igq7x")
+
+[node name="WinLabel" type="Label" parent="UserInterface/GameUI" groups=["ui"]]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_1ixsq")
+theme_override_font_sizes/font_size = 72
+text = "🎉 YOU WIN! 🎉"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]

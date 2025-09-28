@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Assets/red/platform_6x6x4_red.gltf" id="1"]
+[ext_resource type="Material" path="res://Materials/platform_red_light.tres" id="2"]
+
+[node name="PlatformRedLight" instance=ExtResource("1")]
+
+[node name="platform_6x6x4_red" parent="." index="0"]
+surface_material_override/0 = ExtResource("2")
